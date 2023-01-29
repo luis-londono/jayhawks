@@ -12,9 +12,11 @@ const quotes = "%22+";
 
 // Date
 const today = new Date();
-const year = today.getFullYear();
-const mm = today.getMonth();
-const dd = today.getDate();
+let year = today.getFullYear();
+let mm = today.getMonth();
+let dd = today.getDate();
+
+let dateValue = today.toISOString().split('T')[0];
 
 const monthNames = [
   "January",
@@ -31,7 +33,7 @@ const monthNames = [
   "December",
 ];
 
-const month = monthNames[today.getMonth()];
+let month = monthNames[today.getMonth()];
 
 // timer
 const timer = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -74,6 +76,17 @@ function createLink(url) {
   link.click();
 }
 
+function onDateChange(event) {
+  dateValue = event.target.value;
+
+  year = dateValue.substring(0,4);
+  mm = dateValue.substring(5,7);
+  dd = dateValue.substring(8,10);
+
+  month = monthNames[mm-1];
+  
+}
+
 // this loads the script automatically
 // load();
 
@@ -81,3 +94,16 @@ function createLink(url) {
 document.getElementById("load").addEventListener("click", load);
 document.getElementById("footer").innerText =
   "Copyright © " + year.toString() + " | PapaDonO";
+document.getElementById("input-date").value = dateValue;
+
+document.getElementById("load").addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    // event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("input-date").click();
+  }
+});
+
+window.addEventListener("keydown", function (e) { if (13 == e.keyCode) { load() } })

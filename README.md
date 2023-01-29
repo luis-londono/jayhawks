@@ -1,1 +1,1 @@
-Script to search pages using brave browser.
+url https://https://github.com/luis-londono/jayhawks/jayhawks.html
