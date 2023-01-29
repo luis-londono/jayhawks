@@ -7,7 +7,6 @@ const space = "%2C+";
 const amp = "&";
 const site = "site%3Afacebook.com";
 const end = "&source=web";
-
 const quotes = "%22+";
 
 // Date
@@ -84,7 +83,6 @@ function onDateChange(event) {
   dd = dateValue.substring(8,10);
 
   month = monthNames[mm-1];
-  
 }
 
 // this loads the script automatically
