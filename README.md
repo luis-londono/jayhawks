@@ -1,1 +1,1 @@
-url https://github.io/luis-londono/jayhawks/index.html
+url https://luis-londono.github.io/jayhawks/index.html
